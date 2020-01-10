@@ -3,7 +3,7 @@
 
 Name:           log4j
 Version:        1.2.17
-Release:        15%{?dist}
+Release:        16%{?dist}
 Epoch:          0
 Summary:        Java logging package
 BuildArch:      noarch
@@ -23,6 +23,7 @@ Patch2:         0009-Fix-tests.patch
 Patch3:         0010-Fix-javadoc-link.patch
 Patch4:         0011-Remove-openejb.patch
 Patch5:         0012-Add-proper-bundle-symbolicname.patch
+Patch6:         0001-Backport-fix-for-CVE-2017-5645.patch
 
 BuildRequires:  %{__perl}
 BuildRequires:  maven-local
@@ -59,6 +60,7 @@ Summary:        API documentation for %{name}
 %patch3 -p1 -b .xlink-javadoc
 %patch4 -p1 -b .openejb
 %patch5 -p1 -b .bundlename
+%patch6 -p1 -b .cve-2017-5645
 %pom_remove_plugin :maven-site-plugin
 
 sed -i "s|groupId>ant<|groupId>org.apache.ant<|g" pom.xml
@@ -163,6 +165,10 @@ fi
 
 
 %changelog
+* Tue Jul 11 2017 Mikolaj Izdebski <mizdebsk@redhat.com> - 0:1.2.17-16
+- Fix socket receiver deserialization vulnerability
+- Resolves: CVE-2017-5645
+
 * Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 01.2.17-15
 - Mass rebuild 2013-12-27
 

@@ -3,7 +3,7 @@
 
 Name:           log4j
 Version:        1.2.17
-Release:        14%{?dist}
+Release:        15%{?dist}
 Epoch:          0
 Summary:        Java logging package
 BuildArch:      noarch
@@ -163,6 +163,9 @@ fi
 
 
 %changelog
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 01.2.17-15
+- Mass rebuild 2013-12-27
+
 * Thu Oct 24 2013 Mikolaj Izdebski <mizdebsk@redhat.com> - 0:1.2.17-14
 - Remove desktop files
 
